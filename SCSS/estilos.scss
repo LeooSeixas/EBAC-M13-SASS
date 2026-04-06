@@ -1,0 +1,13 @@
+@use 'base';
+@use 'layout';
+@use 'mixins';
+@use 'variaveis';
+@use 'componentes';
+@use 'responsividade';
+@use 'animacoes';
+
+.services,.depoiments,.contact {
+    &::before {
+    @include mixins.divisor;
+    }    
+}

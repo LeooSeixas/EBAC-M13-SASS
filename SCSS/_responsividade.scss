@@ -1,0 +1,297 @@
+@use 'layout';
+
+/* #region RESPONSIVIDADE */
+
+    /* DISPOSITIVOS DE ATÉ 1440px */
+    @media (max-width: 1440px) {
+        .button--hero {
+            font-size: 2rem;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        .form {
+            margin: 5px 200px 5px 200px;
+        }
+    }
+
+    /* DISPOSITIVOS ATÉ 1200px */
+    @media (max-width: 1024px) {
+
+        .desktop {
+            display: none;
+        }
+
+        .services__title, .depoiments__title, .contact__title {
+            font-size: 1.75rem;
+            padding: 10px;
+            z-index: 2;
+        }
+        
+        /* #region ---------------SEÇÃO HERO--------------- */
+        .mobile {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: none;
+            z-index: 1000;
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            grid-template-rows: 1fr;
+            padding: 10px 15px;
+
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        
+
+            &--tittle {
+                font-size: 30px;
+                padding: 0 5px;
+            }
+
+            &__sidebar--link {
+                text-align: end;
+                padding-right: 5px;
+                text-decoration: none;
+            }
+        }
+
+        .about__content--text {
+            font-size: 2rem;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 50px;
+        }
+        /* #endregion */
+
+        /* #region ---------------SIDEBAR--------------- */
+        .sidebar__checkbox{
+            display: none;
+        }
+
+        .sidebar__checkbox:checked ~ .mobile__sidebar {
+            right: 0px;
+        }
+        
+        .mobile__sidebar {
+            font-size: 2rem;
+            display: flex;
+            flex-direction: column;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: ghostwhite;
+            position: fixed;
+            top: 0;
+            transition: all .3s;
+            padding-left: 20px;
+            z-index: 10;
+        }
+
+        .mobile__sidebar--link {
+            color: black;
+            text-align: left;
+            text-decoration: none;
+            font-style: italic;
+            padding: 5px 5px;
+            width: 80vw;
+            border: none;
+            border-bottom: 1px solid #444;
+        }
+
+        .mobile__sidebar--openMenu {
+            font-size: 25px;
+            text-align: center;
+            align-items: center;
+            justify-items: center;
+            color: black;
+            display: block;
+            z-index: 5;
+        }
+
+        .mobile__sidebar--closeMenu {
+            text-align: right;
+            padding-right: 30px;
+        }
+            /* #region ---------------SUBMENU--------------- */
+            .sidebar__submenu {
+                width: 100%;
+
+                .sidebar__submenu--checkbox {
+                    display: none;
+                }
+
+                .sidebar__submenu--aba-titulo {
+                    display: flex;
+                    width: 80vw;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 5px;
+                    border-bottom: 1px solid;
+                }
+
+                .sidebar__submenu--x-icon {
+                    font-size: 1.5rem;
+                    display: inline-block;
+                    transition: all 0.4s ease;
+                    padding: 10px;
+                }
+
+                .sidebar__submenu--list {
+                    max-height: 0;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .sidebar__submenu--checkbox:checked ~ .sidebar__submenu--list {
+                    max-height: 100vh;
+                    border: none;
+                    border-bottom: 1px solid black;
+                    width: 80vw;
+                    transition: all 0.4s ease;
+                }
+
+                .sidebar__submenu--checkbox:checked ~ .sidebar__submenu--aba-titulo {
+                    border: none;
+                }
+
+                .sidebar__submenu--checkbox:checked ~ .sidebar__submenu--aba-titulo
+                .sidebar__submenu--x-icon {
+                    transform: rotate(45deg);
+                }
+
+                .sidebar__submenu--list-item {
+                    color: black;
+                    text-decoration: none;
+                    padding: 5px 20px;
+                    font-size: 2rem;
+                }
+            }
+        /* #endregion */
+        /* #endregion */
+        /* #region ---------------SEÇÃO DEPOIMENTOS--------------- */
+
+        .depoiments__painel--card {
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            grid-template-rows: 1fr;
+            background: ghostwhite;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 5% 10%;
+            box-shadow: 10px 10px 5px rgba(0,0,0,0.1);
+            border: 1px solid black;
+        }
+
+        .depoiments__painel--card--userPhoto{
+            border: 1px;
+            border-style: solid;
+            border-radius: 100%;
+            max-width: 100%;
+        }
+
+        .depoiments__painel--card--userInfo {
+            text-align: start;
+            padding: 0px 10px;
+        }
+
+        .depoiments__painel--card--coment {
+            padding: 5px;
+            text-align: start;
+            grid-column: 1/3;
+        }
+
+        .swiper-button-next, 
+        .swiper-button-prev {
+            margin: 0 -15px;
+        }
+        /* #endregion */
+    }
+
+    /* DISPOSITIVOS DE ATÉ 768px*/
+    @media (max-width: 768px){
+
+        /* #region ---------------SEÇÃO HERO--------------- */
+        .about__content--text {
+            font-size: 1.75rem;
+            padding: 10px;
+            z-index: 2;
+            justify-content: center;
+        }
+
+        .mobile__sidebar {
+            font-size: 2.6rem;
+        }
+
+        .sidebar__submenu--list-item {
+            font-size: 2rem;
+        }
+        /* #endregion */
+
+        /* #region ---------------SEÇÃO SERVIÇOS--------------- */
+        .services {
+            text-align: center;
+            font-size: 1.5rem;
+        
+            &__painel {
+                display: grid;
+                grid-template-columns: 1fr;
+                margin: auto 10px;
+            }
+
+            &__painel--card {
+                grid-column: auto;
+                font-size: 1rem;
+            }
+        }
+        /* #endregion */
+
+        /* #region ---------------SEÇÃO DEPOIMENTOS--------------- */
+        .depoiments {
+            font-size: 1.5rem;
+        
+            &__painel {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        /* #endregion */
+
+        /* #region ---------------SEÇÃO CONTATO--------------- */
+
+        .contact__info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 2;
+
+            &__info--icon {
+                font-size: 16px;
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 5px;
+                z-index: 2;
+            }
+        } 
+
+        .form {
+            padding: 10px;
+            margin: 10px;
+            z-index: 2;
+        }
+        /* #endregion */
+    }
+
+    /* DISPOSITIVOS DE ATÉ 420px*/
+    @media(max-width: 425px) {
+        .about__content--text {
+            font-size: 1.3rem;
+            padding: 10px;
+            z-index: 1;
+        }
+    }
+
+/* #endregion */

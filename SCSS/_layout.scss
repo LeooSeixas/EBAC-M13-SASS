@@ -1,0 +1,281 @@
+@use 'variaveis';
+@use 'mixins';
+
+/* #region ---------------SEÇÃO HERO--------------- */
+    .mobile{
+        display: none;
+    }
+    
+    .hero-wrapper {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+    }
+
+    .imagem-desktop {
+        @include mixins.image;
+    }
+
+    .desktop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        background-color: transparent;
+        padding: 5px 50px;
+        z-index: 1000;
+
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header-scroll {
+        background-color: ghostwhite;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        font-size: small;
+    }
+
+    .header-scroll .button--hero {
+        font-size: variaveis.$font-big;
+    }
+
+    .about {
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding-bottom: 50px;
+        z-index: 0;
+        justify-content: center;
+        align-items: center;
+    
+
+        &__content {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__content-text {
+            font-size: variaveis.$font-title;
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+        }
+    }
+/* #endregion */
+
+/* #region ---------------SEÇÃO SERVIÇOS--------------- */
+    .services {
+        font-size: variaveis.$font-big;
+
+        &__painel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 10%;
+            justify-content: center;
+        }
+
+        &__card {
+            text-align: center;
+            font-size: variaveis.$font-medium;
+            padding: 5px;
+        }
+
+    }
+/* #endregion */
+
+/* #region ---------------SEÇÃO DEPOIMENTOS--------------- */
+
+.depoiments {
+    &__title {
+        font-size: variaveis.$font-big;
+        padding: 10px;
+    }
+    
+    &__painel {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        grid-template-rows: 1fr;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .swiper {
+        position: relative;
+        width: 90%;
+        overflow: hidden;
+    }
+
+    .swiper-button-next, 
+    .swiper-button-prev {
+        color: variaveis.$primary-color !important;
+        z-index: 100 !important;
+        transform: scale(0.5);
+    }
+
+    &__opinion {
+        padding: 15px;
+    }
+
+    &__opinion--title {
+        font-size: variaveis.$font-big;
+        text-decoration: none;
+        color: variaveis.$primary-color;
+    }
+
+    &__opinion--text {
+        font-size: variaveis.$font-medium;
+        text-decoration: none;
+        color: variaveis.$primary-color;
+        font-style: italic;
+    }
+
+    &__opinion--star {
+        font-size: variaveis.$font-small;
+        color: variaveis.$primary-color;
+        padding: 5px;
+    }
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column: 2/3;
+    background: ghostwhite;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid variaveis.$primary-color;
+
+    &__coment {
+        font-size: variaveis.$font-small;
+        padding: 5px;
+        grid-column: 1/3;
+        grid-row: 2;
+    }
+
+    &__time {
+        font-size: variaveis.$font-small;
+        font-style: italic;
+    }
+
+    &__name {
+        font-size: variaveis.$font-medium;
+    }
+
+    &__user-photo{
+        border: 1px;
+        border-style: solid;
+        border-radius: 100%;
+        max-width: 80%;
+        margin: 5px;
+    }
+
+    &__user-info {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+}
+/* #endregion */
+
+/* #region ---------------SEÇÃO CONTATO--------------- */
+        .contact{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            color: variaveis.$primary-color;
+            padding-top: 10px;
+        
+            &__interface {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                padding-bottom: 50px;
+            }
+
+            &__interface--text {
+                margin: 5px 30px;
+                padding: 0 variaveis.$espacamento * 5 0 variaveis.$espacamento * 5;
+                font-size: variaveis.$font-big;
+            }
+
+            &__info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+
+                position: relative;
+                z-index: 2;
+            }
+
+            &__info-icon {
+                font-size: variaveis.$font-small;
+                font-style: normal;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                margin: 10px 5px;
+            }
+
+        }
+
+        .imagem-form {
+            @include mixins.image;
+        }
+
+        .form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 2fr 1fr;
+            color: variaveis.$primary-color;
+            border: 1px solid variaveis.$primary-color;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px 450px;
+            background-color: transparent;
+
+            position: relative;
+            z-index: 5;
+        
+        
+            &__input, &__textarea {
+                font-family: variaveis.$font-family;
+                color: white;
+                background-color: rgba(128, 128, 128, 0.541);
+                margin: 10px;
+                width: 95%;
+                padding: variaveis.$espacamento;
+                position: relative;
+                z-index: 1;
+            }
+
+            &__input--name{
+                grid-column: 1/3;
+                width: 95%;
+            }
+
+            &__input--phone{
+                width: 90%;
+            }
+
+            &__textarea--message {
+                grid-column: 1/3;
+            }
+
+            &__input::placeholder,
+            &__textarea::placeholder {
+                color: white;
+            }
+        }
+    /* #endregion */

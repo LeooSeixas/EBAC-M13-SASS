@@ -1,0 +1,40 @@
+@use 'variaveis';
+
+/* #region ANIMAÇÕES E INTERAÇÕES */
+
+    /* Transição suave para todos os elementos interativos */
+    .button, .services__card, .card, .form__input, .form__textarea {
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Efeito nos Botões (Menu e Enviar) */
+    .button:hover {
+        background-color: #000;
+        color: white;
+        transform: translateY(-3px); /* Leve subida */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .button--hero:hover {
+        background-color: transparent;
+        transform: none;
+        color: variaveis.$primary-color;
+        box-shadow: none;
+    }
+
+    /* Efeito nos Cards (Serviços e Depoimentos) */
+    .services__card:hover, .card:hover {
+        transform: scale(1.02); /* Aumenta 2% */
+        background-color: #fff;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* Estilo de foco nos campos do formulário */
+    .form__input:focus, .form__textarea:focus {
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: variaveis.$primary-color;
+        border: 1px solid variaveis.$primary-color;
+    }
+
+/* #endregion */
